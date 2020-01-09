@@ -20,29 +20,49 @@ var numChar = "0123456789"; //string of all possible numbers
 var lowChar = "abcdefghijklmnopqrstuvwxyz";
 var uppChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var includeStr = ""; //string to be filled out with all possible characters
+var passNew = ""; //empty string for password to fill to
 
 //if statements to decide what characters to include
-if (specBool === true) {
-  includeStr = includeStr + specChar;
-}
-if (numBool === true) {
-  includeStr = includeStr + numChar;
-}
-if (lowBool === true) {
-  includeStr = includeStr + lowChar;
-}
-if (uppBool === true) {
-  includeStr = includeStr + uppChar;
-}
-if (
-  specBool === false &&
-  numBool === false &&
-  lowBool === false &&
-  uppBool === false
-) {
+if (intLong >= 8 && intLong <= 128) {
+  if (specBool === true) {
+    includeStr = includeStr + specChar;
+  }
+  if (numBool === true) {
+    includeStr = includeStr + numChar;
+  }
+  if (lowBool === true) {
+    includeStr = includeStr + lowChar;
+  }
+  if (uppBool === true) {
+    includeStr = includeStr + uppChar;
+  }
+  if (
+    specBool === false &&
+    numBool === false &&
+    lowBool === false &&
+    uppBool === false
+  ) {
+    alert(
+      "we are not able to make a new password for you with the information available."
+    );
+  }
+} else {
   alert(
     "we are not able to make a new password for you with the information available."
   );
 }
 
-console.log(includeStr);
+console.log(includeStr); // sends potential characters to the console
+
+function randomPassGenerator(intLong) {
+  var passNew = ""; // Empty value of the selective variable
+  while (intLong--) {
+    passNew += includeStr.substr(
+      Math.floor(Math.random() * includeStr.length + 1),
+      1
+    ); // selecting any value from allCharacters varible by using Math.random()
+  }
+  return passNew; // returns the generated alpha-numeric string
+}
+
+document.write(randomPassGenerator(intLong));
