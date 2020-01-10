@@ -1,0 +1,17 @@
+body {
+  background-color: darkslategrey;
+}
+.container {
+  width: 60vw;
+  height: 40vh;
+  margin: auto;
+  text-align: center;
+  padding: 2%;
+  background-color: limegreen;
+}
+
+textarea {
+  height: auto;
+  width: 60%;
+  padding: 2%;
+}

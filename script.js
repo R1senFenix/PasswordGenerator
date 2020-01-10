@@ -1,24 +1,17 @@
-//prompts for starting questions
-var howLong = prompt(
-  "Enter a number between 8 to 128 for how long the password will be.",
-  8
-);
-var specBool = confirm(
-  "Would you like to incude special characters in your password?"
-);
-var numBool = confirm("Would you like to include numbers in your password?");
-var lowBool = confirm(
-  "Would you like to include lowercase letters in your password?"
-);
-var uppBool = confirm(
-  "Would you like to include uppercase letters in your password?"
-);
+var passGoesHere = document.querySelector("#passGoesHere");
+var getPassJS = document.querySelector("#getPass")
 
+var getValues = promptQuestions();
+var howLong = getValues[0];
+var specBool = getValues[1];
+var numBool = getValues[2];
+var lowBool = getValues[3];
+var uppBool = getValues[4];
 var intLong = parseInt(howLong); //turns how long into an integer
-var specChar = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"; //string of all possible special characters
-var numChar = "0123456789"; //string of all possible numbers
-var lowChar = "abcdefghijklmnopqrstuvwxyz";
-var uppChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const specChar = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"; //string of all possible special characters
+const numChar = "0123456789"; //string of all possible numbers
+const lowChar = "abcdefghijklmnopqrstuvwxyz";
+const uppChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var includeStr = ""; //string to be filled out with all possible characters
 var passNew = ""; //empty string for password to fill to
 
@@ -65,4 +58,29 @@ function randomPassGenerator(intLong) {
   return passNew; // returns the generated alpha-numeric string
 }
 
-document.write(randomPassGenerator(intLong));
+//prompts for starting questions
+function promptQuestions() {
+  var howLong = prompt(
+    "Enter a number between 8 to 128 for how long the password will be.",
+    8
+  );
+  var specBool = confirm(
+    "Would you like to incude special characters in your password?"
+  );
+  var numBool = confirm("Would you like to include numbers in your password?");
+  var lowBool = confirm(
+    "Would you like to include lowercase letters in your password?"
+  );
+  var uppBool = confirm(
+    "Would you like to include uppercase letters in your password?"
+  );
+  return (howLong(), specBool(), numBool(), lowBool(), uppBool());
+
+}
+
+getPassJS.addEventListener("click", promptQuestions()
+
+)
+console.log(randomPassGenerator(intLong));
+passGoesHere.textarea(randomPassGenerator(intLong));
+
