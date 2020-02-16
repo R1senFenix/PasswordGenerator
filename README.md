@@ -1,3 +1,3 @@
 # PasswordGenerator
 
-https://r1senfenix.github.io/PassowrdGenerator/.
+https://r1senfenix.github.io/PasswordGenerator/.
